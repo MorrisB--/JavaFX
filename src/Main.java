@@ -1,10 +1,12 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application implements EventHandler<ActionEvent>{
 
 	Stage window;
 	Button button;
@@ -18,6 +20,8 @@ public class Main extends Application {
 		window = primaryStage;
 		window.setTitle("JavaFX Title");
 		button = new Button("Click!");
+		
+		button.setOnAction(this);
 
 		StackPane layout = new StackPane();
 		layout.getChildren().add(button);
@@ -25,6 +29,17 @@ public class Main extends Application {
 
 		window.setScene(scene);
 		window.show();
+	}
+
+	/**
+	 * This method is called whenever a user clicks a button.
+	 * @param arg0
+	 */
+	@Override
+	public void handle(ActionEvent event) {
+
+		if(event.getSource() == button)
+			System.out.println("Button clicked!");
 	}
 
 }
