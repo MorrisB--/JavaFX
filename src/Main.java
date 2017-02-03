@@ -3,14 +3,17 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application implements EventHandler<ActionEvent>{
 
 	Stage window;
 	Button button;
-
+	TextArea textArea;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -19,13 +22,19 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 	public void start(Stage primaryStage) throws Exception {
 		window = primaryStage;
 		window.setTitle("JavaFX Title");
-		button = new Button("Click!");
+		button = new Button("Submit");
 		
 		button.setOnAction(this);
 
-		StackPane layout = new StackPane();
-		layout.getChildren().add(button);
-		Scene scene = new Scene(layout, 500, 500);
+		//StackPane layout = new StackPane();
+		//layout.getChildren().add(button);
+		
+        textArea = new TextArea("Enter here.");
+        
+        VBox vbox = new VBox(textArea, button);
+		Scene scene = new Scene(vbox, 500, 500);
+
+        System.out.println(textArea.getText());
 
 		window.setScene(scene);
 		window.show();
@@ -39,7 +48,7 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 
 		if(event.getSource() == button)
-			System.out.println("Button clicked!");
+			System.out.println(textArea.getText());
 	}
 
 }
