@@ -8,7 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Main extends Application implements EventHandler<ActionEvent>{
+public class Main extends Application /*implements EventHandler<ActionEvent>*/{
 
 	Stage window;
 	Button button;
@@ -24,8 +24,14 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 		window.setTitle("JavaFX Title");
 		button = new Button("Submit");
 		
-		button.setOnAction(this);
+		/*button.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				System.out.println("Working");
+			}
+		});*/
 
+		button.setOnAction(e -> System.out.println("Using lamda"));
 		//StackPane layout = new StackPane();
 		//layout.getChildren().add(button);
 		
@@ -44,11 +50,11 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 	 * This method is called whenever a user clicks a button.
 	 * @param arg0
 	 */
-	@Override
+/*	@Override
 	public void handle(ActionEvent event) {
 
 		if(event.getSource() == button)
 			System.out.println(textArea.getText());
-	}
+	}*/
 
 }
