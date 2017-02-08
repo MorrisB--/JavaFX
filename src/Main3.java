@@ -18,10 +18,10 @@ public class Main3 extends Application {
 
 		window = primaryStage;
 		window.setTitle("Alert");
-		
+
 		button = new Button("Click");
 		button.setOnAction(e -> AlertBox.display("button title", "button message"));
-		
+
 		StackPane layout = new StackPane();
 		layout.getChildren().add(button);
 		Scene scene = new Scene(layout, 500, 500);
