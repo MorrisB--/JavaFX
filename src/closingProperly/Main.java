@@ -1,5 +1,6 @@
 package closingProperly;
 
+import defaultpackage.ConfirmBox;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -20,8 +21,14 @@ public class Main extends Application {
 
 		window = primaryStage;
 		window.setTitle("Closing the program");
-		window.setOnCloseRequest(e -> closeProgram());
-		
+		window.setOnCloseRequest(e -> {
+			/*
+			 *  this is needed so after clicking X, the window wont close on its own
+			 */
+			e.consume();
+			closeProgram();
+		});
+
 		button = new Button("Close program");
 		button.setOnAction(e -> closeProgram());
 
@@ -34,8 +41,9 @@ public class Main extends Application {
 	}
 
 	private void closeProgram() {
-		System.out.println("Successfully saved!");
-		window.close();
+		Boolean response = ConfirmBox.display("Title", "Are you sure you want to exit?");
+		if (response)
+			window.close();
 	}
 
 }
