@@ -20,6 +20,8 @@ public class Main extends Application {
 
 		window = primaryStage;
 		window.setTitle("Closing the program");
+		window.setOnCloseRequest(e -> closeProgram());
+		
 		button = new Button("Close program");
 		button.setOnAction(e -> closeProgram());
 
