@@ -20,7 +20,10 @@ public class Main3 extends Application {
 		window.setTitle("Alert");
 
 		button = new Button("Click");
-		button.setOnAction(e -> AlertBox.display("button title", "button message"));
+		button.setOnAction(e -> {
+			boolean result = ConfirmBox.display("button title", "button message");
+			System.out.println("You clicked " + result);
+		});
 
 		StackPane layout = new StackPane();
 		layout.getChildren().add(button);
