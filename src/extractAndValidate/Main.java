@@ -22,7 +22,8 @@ public class Main extends Application{
 		window.setTitle("Window title");
 		
 		TextField nameInput = new TextField();
-		button = new Button("Button");
+		button = new Button("Send age");
+		button.setOnAction(e -> isInt(nameInput, nameInput.getText()));
 		
 		VBox layout = new VBox(10); // spacing the columns out 20 pixels
 		layout.setPadding(new Insets(20, 20, 20, 20));
@@ -33,5 +34,20 @@ public class Main extends Application{
 		window.show();
 		
 	}
+
+	private boolean isInt(TextField nameInput, String message) {
+		try {
+			int age = Integer.parseInt(message);
+			System.out.println("Age is: " + age);
+			return true;
+		} catch (NumberFormatException e) {
+			System.out.println("Enter a valid age");
+		}
+		
+		return false;
+	}
+	
+	
+	
 
 }
