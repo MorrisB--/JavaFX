@@ -44,7 +44,7 @@ public class Main extends Application{
 			message += "Beans. ";
 		
 		if (box2.isSelected())
-			message += "Bacon. ";
+			message += box2.getText() + ". ";
 		
 		System.out.println(message);
 	}
