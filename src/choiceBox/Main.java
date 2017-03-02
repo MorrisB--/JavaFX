@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -23,9 +24,17 @@ public class Main extends Application{
 		
 		button = new Button("Button");
 		
+		ChoiceBox<String> choiceBox = new ChoiceBox<String>();
+		choiceBox.getItems().add("Name1");
+		choiceBox.getItems().addAll("Name2", "Name3");
+		// choiceBox.setValue("Inital Value"); Must be something that is already inside the list
+		choiceBox.setValue("Name3");
+
+		button.setOnAction(e -> getChoice(choiceBox));
+ 
 		VBox layout = new VBox(10); // spacing the columns out 20 pixels
 		layout.setPadding(new Insets(20, 20, 20, 20));
-		layout.getChildren().addAll(button);
+		layout.getChildren().addAll(choiceBox, button);
 		
 		scene = new Scene(layout, 300, 250);
 		window.setScene(scene);
@@ -33,16 +42,8 @@ public class Main extends Application{
 		
 	}
 	
-	private void handleCheckBoxOptions(CheckBox box1, CheckBox box2) {
-		String message = "Boxes checked: ";
-		
-		if (box1.isSelected())
-			message += "Beans. ";
-		
-		if (box2.isSelected())
-			message += box2.getText() + ". ";
-		
-		System.out.println(message);
+	private void getChoice(ChoiceBox<String> choiceBox) {
+		System.out.println(choiceBox.getValue());
 	}
 
 	
