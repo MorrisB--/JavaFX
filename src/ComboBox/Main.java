@@ -32,13 +32,12 @@ public class Main extends Application{
 				"Name3"
 				);
 		
-		ChoiceBox<String> choiceBox = new ChoiceBox<String>();
-		choiceBox.getItems().add("Name1");
-		choiceBox.getItems().addAll("Name2", "Name3");
-		// choiceBox.setValue("Inital Value"); Must be something that is already inside the list
-		choiceBox.setValue("Name3");
-
-		choiceBox.getSelectionModel().selectedIndexProperty().addListener((v, oldValue, newValue) -> System.out.println(newValue));;
+		comboBox.setPromptText("Pick a name");
+		comboBox.setEditable(true);
+		
+		button.setOnAction(e -> printMovie());
+		
+		comboBox.setOnAction(e -> System.out.println("Selected: " + comboBox.getValue()));
 		
 		VBox layout = new VBox(10); // spacing the columns out 20 pixels
 		layout.setPadding(new Insets(20, 20, 20, 20));
@@ -48,5 +47,9 @@ public class Main extends Application{
 		window.setScene(scene);
 		window.show();
 		
+	}
+	
+	private void printMovie() {
+		System.out.println(comboBox.getValue());
 	}
 }
