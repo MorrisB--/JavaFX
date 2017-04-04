@@ -1,4 +1,4 @@
-package TableView;
+package tableView;
 
 public class Main {
 
