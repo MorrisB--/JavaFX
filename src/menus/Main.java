@@ -2,6 +2,7 @@ package menus;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -45,8 +46,22 @@ public class Main extends Application {
 		paste.setDisable(true);
 		editMenu.getItems().add(paste);
 		
+		// Help menu
+		Menu helpMenu = new Menu("Help");
+		CheckMenuItem showLines = new CheckMenuItem("Show Line Numbers");
+		showLines.setOnAction(e -> {
+			if (showLines.isSelected())
+				System.out.println("Show Lines True");
+			else
+				System.out.println("Show Lines False");
+		});
+		CheckMenuItem autoSave = new CheckMenuItem("Enable/Disable Autosave");
+		autoSave.setSelected(true);
+		helpMenu.getItems().addAll(showLines, autoSave);
+		
+		//Main menu bar
 		MenuBar menuBar = new MenuBar();
-		menuBar.getMenus().addAll(fileMenu, editMenu);
+		menuBar.getMenus().addAll(fileMenu, editMenu, helpMenu);
 		
 		layout = new BorderPane();
 		layout.setTop(menuBar);
