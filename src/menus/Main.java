@@ -6,7 +6,9 @@ import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -59,9 +61,21 @@ public class Main extends Application {
 		autoSave.setSelected(true);
 		helpMenu.getItems().addAll(showLines, autoSave);
 		
+		// Theme RadioMenuItems
+		Menu themeMenu = new Menu("Theme");
+		ToggleGroup themeToggle = new ToggleGroup();
+		RadioMenuItem dark = new RadioMenuItem("Dark");
+		RadioMenuItem light = new RadioMenuItem("Light");
+		RadioMenuItem blue = new RadioMenuItem("Blue");
+		/*dark.setToggleGroup(themeToggle);
+		light.setToggleGroup(themeToggle);
+		blue.setToggleGroup(themeToggle);*/
+		themeToggle.getToggles().addAll(dark, light, blue);
+		themeMenu.getItems().addAll(dark, light, blue);
+		
 		//Main menu bar
 		MenuBar menuBar = new MenuBar();
-		menuBar.getMenus().addAll(fileMenu, editMenu, helpMenu);
+		menuBar.getMenus().addAll(fileMenu, editMenu, helpMenu, themeMenu);
 		
 		layout = new BorderPane();
 		layout.setTop(menuBar);
