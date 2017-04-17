@@ -26,6 +26,7 @@ public class Main extends Application{
 		gridPane.setHgap(10);
 		
 		Label usernameLabel = new Label("Username");
+		//usernameLabel.setStyle("-fx-textfill: #e8e8e8");
 		GridPane.setConstraints(usernameLabel, 0, 0);
 		
 		TextField usernameTextField = new TextField("username@label.com");
