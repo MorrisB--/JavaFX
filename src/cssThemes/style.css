@@ -8,5 +8,13 @@
 }
 
 .button {
-	#-fx-background-color: linear-gradient(#dc9656, #ab4642);
+	-fx-background-color: linear-gradient(#dc9656, #ab4642);
+}
+
+.button-blue {
+	-fx-background-color: #7cafc2;
+}
+
+#label-bold {
+	-fx-font-weight: bold;
 }

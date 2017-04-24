@@ -27,6 +27,7 @@ public class Main extends Application{
 		
 		Label usernameLabel = new Label("Username");
 		//usernameLabel.setStyle("-fx-textfill: #e8e8e8");
+		usernameLabel.setId("label-bold");
 		GridPane.setConstraints(usernameLabel, 0, 0);
 		
 		TextField usernameTextField = new TextField("username@label.com");
@@ -42,7 +43,11 @@ public class Main extends Application{
 		Button loginButton = new Button("Log In");
 		GridPane.setConstraints(loginButton, 1, 2);
 		
-		gridPane.getChildren().addAll(usernameLabel, usernameTextField, passwordLabel,passwordTextField, loginButton);
+		Button signUpButton = new Button("Sign Up");
+		signUpButton.getStyleClass().add("button-blue");
+		GridPane.setConstraints(signUpButton, 1, 3);
+		
+		gridPane.getChildren().addAll(usernameLabel, usernameTextField, passwordLabel,passwordTextField, loginButton, signUpButton);
 		
 		Scene scene = new Scene(gridPane, 500, 500);
 		scene.getStylesheets().add("cssThemes/style.css");
