@@ -1,14 +1,14 @@
 package FXML;
 
-import javafx.fxml.Initializable;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.control.Button;
 
-public class Controller implements Initializable {
+public class Controller {
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("View is now loaded!");
+	public Button button;
+    
+    public void handleButtonClick() {
+    	System.out.println("Button clicked");
+    	button.setText("Clicked");
     }
 
 }
